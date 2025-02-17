@@ -30,16 +30,22 @@ npm install -g @angular/cli
 
 - Clonar el repositorio :
 
-`git clone <URL-del-repositorio>`
-`cd taskApp`
+```
+git clone https://github.com/schleyer93/taskApp.git
+cd taskApp
+```
 
 - Instalar dependencias:
 
-`npm install`
+```
+npm install
+```
 
 - Ejecutar la aplicación:
 
-`ng serve --open`
+```
+ng serve --open
+```
 
 - Esto abrirá la aplicación en el navegador en http://localhost:4200.
 

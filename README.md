@@ -1,59 +1,119 @@
 # TaskApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Este proyecto fue generado usando [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
-## Development server
+## Descripción del Proyecto
 
-To start a local development server, run:
+TaskApp es una aplicación web desarrollada en Angular 19 que permite a los usuarios gestionar tareas. Las principales funcionalidades incluyen:
 
-```bash
-ng serve
-```
+- Agregar nuevas tareas: A través de un formulario con validaciones.
+- Listar tareas: Muestra todas las tareas con su título, descripción y estado.
+- Cambiar el estado de las tareas: Las tareas pueden estar en tres estados: Por completar, En proceso o Completada.
+- Eliminar tareas: Permite eliminar tareas de la lista.
+- Contador de tareas pendientes: Muestra cuántas tareas están en estado "Por completar".
+- Mensajes dinámicos: Muestra mensajes cuando no hay tareas o cuando hay tareas pendientes.
+- Diseño responsivo: La lista de tareas se adapta al tamaño de la pantalla (1 columna en móviles, 2 en tablets y 3 en pantallas grandes).
+- Estilos minimalistas: Utiliza Bootstrap para un diseño limpio y elegante.
+- Manejo de plurales con i18nPlural: Se utiliza i18nPlural para manejar los plurales de manera dinámica.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Instrucciones de Ejecución
 
-## Code scaffolding
+# Requisitos Previos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Node.js: Tener Node.js instalado.
 
-```bash
-ng generate component component-name
-```
+Angular CLI: Instala Angular CLI globalmente usando npm:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+npm install -g @angular/cli
 
-```bash
-ng generate --help
-```
+# Pasos para Ejecutar el Proyecto
 
-## Building
+- Clonar el repositorio :
 
-To build the project run:
+`git clone <URL-del-repositorio>`
+`cd taskApp`
 
-```bash
-ng build
-```
+- Instalar dependencias:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+`npm install`
 
-## Running unit tests
+- Ejecutar la aplicación:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+`ng serve --open`
 
-```bash
-ng test
-```
+- Esto abrirá la aplicación en el navegador en http://localhost:4200.
 
-## Running end-to-end tests
+## Decisiones Tomadas
 
-For end-to-end (e2e) testing, run:
+1. Uso de Angular 19
+Razón: Angular 19 ofrece características mejoradas y un mejor rendimiento. Además, se eligió esta versión para evitar un error al tratar de ejecutar el proyecto en Angular 14, relacionado con los tipos de TypeScript en el paquete @types/node.
 
-```bash
-ng e2e
-```
+2. Formularios Reactivos
+Razón: Los formularios reactivos proporcionan un mayor control sobre las validaciones y el manejo de datos, lo que los hace ideales para formularios complejos.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. Bootstrap para Estilos
+Razón: Bootstrap facilita la creación de interfaces responsivas y modernas con poco esfuerzo. Además, es ampliamente utilizado y tiene una gran comunidad de soporte.
 
-## Additional Resources
+4. Manejo de Plurales con i18nPlural
+Razón: i18nPlural es una característica integrada de Angular que permite manejar plurales de manera dinámica y limpia, evitando la necesidad de crear pipes personalizados.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+5. Diseño Responsivo
+Razón: El diseño responsivo garantiza que la aplicación sea usable en cualquier dispositivo, desde móviles hasta pantallas grandes.
+
+6. Mensajes Dinámicos
+Razón: Los mensajes dinámicos mejoran la experiencia del usuario al proporcionar retroalimentación inmediata sobre el estado de la lista de tareas.
+
+7. Cambio de Color Según el Estado
+Razón: El cambio de color según el estado de la tarea permite una identificación visual rápida, mejorando la usabilidad.
+
+
+## Funcionalidades Detalladas
+
+1. Agregar Tareas
+Descripción: Los usuarios pueden agregar nuevas tareas mediante un formulario.
+
+- Validaciones:
+
+    El título de cada tarea es obligatorio.
+
+    La descripción de las tareas es obligatoria.
+
+- Tecnología: Formularios reactivos.
+
+2. Listar Tareas
+- Descripción: Muestra todas las tareas en una lista.
+
+- Diseño: Tarjetas responsivas (1 columna en móviles, 2 en tablets, 3 en pantallas grandes).
+
+- Tecnología: Bootstrap grid system.
+
+3. Cambiar Estado de las Tareas
+- Descripción: Los usuarios pueden cambiar el estado de una tarea entre Por completar, En proceso y Completada.
+
+- Visualización: El color de la tarjeta cambia según el estado.
+
+- Tecnología: Clases dinámicas con [ngClass].
+
+4. Eliminar Tareas
+- Descripción: Los usuarios pueden eliminar tareas de la lista.
+
+- Tecnología: Método en el servicio TaskService.
+
+5. Contador de Tareas Pendientes
+- Descripción: Muestra cuántas tareas están en estado "Por completar".
+
+- Tecnología: i18nPlural para manejar plurales.
+
+6. Mensajes Dinámicos
+- Descripción: Muestra mensajes cuando no hay tareas o cuando hay tareas pendientes.
+
+- Diseño: Tarjetas con estilos consistentes.
+
+- Tecnología: Directiva *ngIf.
+
+- Uso de i18nPlural para Plurales
+    En el componente task-list.component.ts, se define un mapa de plurales (tasksMap) para manejar dinámicamente los mensajes de tareas pendientes:
+
+
+Conclusión
+TaskApp es una aplicación sencilla pero poderosa para gestionar tareas. Combina las mejores prácticas de Angular 19 con un diseño moderno y responsivo. Las decisiones tomadas durante el desarrollo garantizan que la aplicación sea escalable, mantenible y fácil de usar.

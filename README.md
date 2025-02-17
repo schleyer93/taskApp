@@ -30,8 +30,10 @@ npm install -g @angular/cli
 
 - Clonar el repositorio :
 
-```git clone <URL-del-repositorio>```
-`cd taskApp`
+```
+git clone <URL-del-repositorio>
+cd taskApp
+```
 
 - Instalar dependencias:
 

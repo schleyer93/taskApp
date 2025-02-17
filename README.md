@@ -24,7 +24,9 @@ Node.js: Tener Node.js instalado.
 
 Angular CLI: Instala Angular CLI globalmente usando npm:
 
+```
 npm install -g @angular/cli
+```
 
 # Pasos para Ejecutar el Proyecto
 

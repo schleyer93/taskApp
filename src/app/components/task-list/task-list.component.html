@@ -1,0 +1,73 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Lista de Tareas</h1>
+  <div class="text-center mb-4">
+
+      <div class="alert alert-info" *ngIf="tasks.length === 0">
+        No hay tareas disponibles. ¡Crea una nueva tarea!
+      </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4 mb-3" *ngIf="getPendingTasksCount() > 0">
+          <div class="card bg-warning-subtle">
+            <div class="card-body">
+              <h5 class="card-title text-warning">En Proceso</h5>
+              <p class="card-text">
+                Tienes {{ getPendingTasksCount() | i18nPlural:tasksMap }} en proceso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-3" *ngIf="getToCompleteTasksCount() > 0">
+          <div class="card bg-danger-subtle">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Por Completar</h5>
+              <p class="card-text">
+                Tienes {{ getToCompleteTasksCount() | i18nPlural:tasksMap }} por completar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-3" *ngIf="getCompletedCount() > 0">
+          <div class="card bg-success-subtle">
+            <div class="card-body">
+              <h5 class="card-title text-success">Completadas</h5>
+              <p class="card-text">
+                Tienes {{ getCompletedCount() | i18nPlural:tasksMap }} completadas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <a routerLink="/new" class="btn btn-primary">Crear Nueva Tarea</a>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let task of tasks; let i = index" class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100" [ngClass]="{
+        'task-por-completar': task.status === 'Por completar',
+        'task-en-proceso': task.status === 'En proceso',
+        'task-completada': task.status === 'Completada'
+      }">
+        <div class="card-body">
+          <h5 class="card-title">{{ task.title }}</h5>
+          <p class="card-text">{{ task.description }}</p>
+          <p class="card-text">
+            <strong>Estado:</strong>
+            <select class="form-select" [(ngModel)]="task.status" (change)="updateTaskStatus(i, task.status)">
+              <option value="Por completar">Por completar</option>
+              <option value="En proceso">En proceso</option>
+              <option value="Completada">Completada</option>
+            </select>
+          </p>
+          <button class="btn btn-danger btn-sm" (click)="deleteTask(i)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

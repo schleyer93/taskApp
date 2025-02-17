@@ -108,7 +108,7 @@ Descripción: Los usuarios pueden agregar nuevas tareas mediante un formulario.
 - Tecnología: Método en el servicio TaskService.
 
 5. Contador de Tareas Pendientes
-- Descripción: Muestra cuántas tareas están en estado "Por completar".
+- Descripción: Muestra cuántas tareas están en estado "Por completar", "Completado" o "En proceso".
 
 - Tecnología: i18nPlural para manejar plurales.
 
